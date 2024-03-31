@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class HakunaConstant {
 
 	private final long JWT_EXPIRATION = 70000;
-	private final String JWT_SECRET_KEY = "9FYYC75mxRjq81bRpI39O-Ow8RWOqzUMZkCdl2QtlXPiwTgY";
+	private final String JWT_SECRET_KEY = ""; //secret key here
 
 	public long getJwtExpiration() {
 		return JWT_EXPIRATION;

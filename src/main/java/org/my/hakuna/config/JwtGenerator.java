@@ -2,6 +2,7 @@ package org.my.hakuna.config;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import javax.crypto.SecretKey;
 
@@ -24,7 +25,7 @@ public class JwtGenerator {
 	public String generateToken(Authentication authentication) {
 		String userName = authentication.getName();
 		Date currentDate = new Date();
-		Date expiryDate = new Date(currentDate.getTime() + hakunaConstant.getJwtExpiration());
+		Date expiryDate = new Date(currentDate.getTime() + TimeUnit.MINUTES.toMillis(5));
 		String token = Jwts.builder().subject(userName).issuedAt(currentDate).expiration(expiryDate)
 				.signWith(getSecretKey()).compact();
 		return token;
